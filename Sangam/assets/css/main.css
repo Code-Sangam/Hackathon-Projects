@@ -5046,3 +5046,8 @@ body.theme-dark .chat-input-area button { background: #4a90e2; box-shadow: 0 2px
 body.theme-dark .chat-input-area button:hover { background: #3c7bc1; box-shadow: 0 4px 12px rgba(74,144,226,0.45); }
 
 body.theme-dark #footer { background: transparent; }
+
+#side-rail { padding: 0.5rem 0.4rem; }
+#side-rail .icon-nav { gap: 0.25rem; }
+#side-rail .icon-nav li { margin: 0.25rem 0; }
+#side-rail { border-right: 1px solid rgba(255,255,255,0.08); }

@@ -6,6 +6,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			#side-rail .icon-nav { display:flex; flex-direction:column; height:100%; }
+			#side-rail .icon-nav .push-bottom { margin-top:auto; }
+			#side-rail .icon-nav .settings-only .label { display:none; }
+			#side-rail .icon-nav .settings-only a { display:inline-flex; width:46px; height:46px; align-items:center; justify-content:center; padding:0; }
+		</style>
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
@@ -22,6 +28,7 @@
 					<li><a href="student-list.html"><span class="icon solid fa-user-graduate"></span><span class="label">Students</span></a></li>
 					<li><a href="projects.html"><span class="icon solid fa-project-diagram"></span><span class="label">Projects</span></a></li>
 					<li><a href="alumni-profile.html" class="active"><span class="icon solid fa-id-badge"></span><span class="label">Profile</span></a></li>
+					<li class="push-bottom settings-only"><a href="settings.html" title="Settings"><span class="icon solid fa-cog"></span><span class="label">Settings</span></a></li>
 				</ul>
 			</nav>
 			<div class="with-side-rail">

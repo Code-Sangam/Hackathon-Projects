@@ -13,6 +13,10 @@
 			#side-rail .icon-nav { display: flex; flex-direction: column; height: 100%; }
 			#side-rail .icon-nav .push-bottom { margin-top: auto; }
 			#side-rail .icon-nav .settings-only .label { display: none; }
+			#side-rail .icon-nav .settings-only a { display: inline-flex; width: 46px; height: 46px; align-items: center; justify-content: center; padding: 0; }
+			/* Only highlight the icon, not the whole row */
+			#side-rail .icon-nav .settings-only a.active { background: transparent; }
+			#side-rail .icon-nav .settings-only a.active .icon { color: #e44c65; }
 			/* Simple settings content */
 			.settings-wrapper { padding-top: 3.5em; margin-left: 220px; }
 			.settings-card { max-width: 800px; margin: 2rem auto; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; }

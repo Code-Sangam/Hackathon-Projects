@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Set Password - Saṅgam</title>
+		<title>Login - Saṅgam</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -15,7 +15,8 @@
 				<nav id="nav">
 					<ul>
 						<li><a href="index.html">Home</a></li>
-						<li><a href="login.html">Login</a></li>
+						<li><a href="student-signup.html">Student Sign Up</a></li>
+						<li><a href="alumni-signup.html">Alumni Sign Up</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -23,16 +24,15 @@
 			<section class="wrapper style1 special" style="padding-top:4rem;padding-bottom:4rem;">
 				<div class="container">
 					<header class="major">
-						<h2>Set Your Password</h2>
-						<p>Step 3: Confirm contact and create password</p>
+						<h2>Welcome Back</h2>
+						<p>Login with your email or mobile</p>
 					</header>
-					<div class="box" style="max-width:520px;margin:0 auto;">
-						<form id="set-password-form" onsubmit="return false;">
+					<div class="box" style="max-width:640px;margin:0 auto;">
+						<form id="login-form" onsubmit="return false;">
 							<div class="row gtr-uniform gtr-50">
 								<div class="col-12"><input type="text" name="contact" placeholder="Email ID or Mobile No." required /></div>
 								<div class="col-12"><input type="password" name="password" placeholder="Password" required /></div>
-								<div class="col-12"><input type="password" name="confirmPassword" placeholder="Confirm Password" required /></div>
-								<div class="col-12"><button id="set-password-submit" class="button primary fit">Finish Signup</button></div>
+								<div class="col-12"><button id="login-submit" class="button primary fit">Login</button></div>
 							</div>
 						</form>
 					</div>
@@ -53,6 +53,7 @@
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script src="assets/js/config.js"></script>
 		<script src="assets/js/auth.js"></script>
 	</body>
 </html>

@@ -10,7 +10,9 @@
 	}
 
 	function post(url, data){
-		return fetch(url, {
+		var base = (window.API_BASE || '').replace(/\/$/,'');
+		var full = /^https?:/i.test(url) ? url : (base + url);
+		return fetch(full, {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(data)
