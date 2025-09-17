@@ -61,30 +61,30 @@ class ChatApp {
             {
                 _id: 'conv_1',
                 participants: [
-                    { _id: 'user_2', fullName: 'Sarah Johnson', avatar: '', isOnline: true },
-                    { _id: 'user_3', fullName: 'Mike Chen', avatar: '', isOnline: false }
+                    { _id: 'user_2', fullName: 'Aarav Mehta', avatar: '', isOnline: true, lastSeen: new Date() },
+                    { _id: 'demo_user_1', fullName: 'Demo User', avatar: '', isOnline: true, lastSeen: new Date() }
                 ],
                 lastMessage: {
-                    content: 'Hey! How are you doing?',
-                    senderId: { fullName: 'Sarah Johnson' },
-                    createdAt: new Date(Date.now() - 1000 * 60 * 30) // 30 minutes ago
+                    content: 'Hey, how are you doing?',
+                    senderId: { fullName: 'Aarav Mehta' },
+                    createdAt: new Date(Date.now() - 1000 * 60 * 2)
                 },
-                unreadCount: new Map([['demo_user_1', 2]]),
-                lastMessageTime: new Date(Date.now() - 1000 * 60 * 30)
+                unreadCount: new Map([['demo_user_1', 1]]),
+                lastMessageTime: new Date(Date.now() - 1000 * 60 * 2)
             },
             {
                 _id: 'conv_2',
                 participants: [
-                    { _id: 'user_4', fullName: 'Alex Rodriguez', avatar: '', isOnline: true },
-                    { _id: 'user_5', fullName: 'Emma Wilson', avatar: '', isOnline: true }
+                    { _id: 'user_3', fullName: 'Isha Kapoor', avatar: '', isOnline: false, lastSeen: new Date(Date.now() - 1000 * 60 * 60) },
+                    { _id: 'demo_user_1', fullName: 'Demo User', avatar: '', isOnline: true, lastSeen: new Date() }
                 ],
                 lastMessage: {
-                    content: 'Thanks for the help with the project!',
-                    senderId: { fullName: 'Alex Rodriguez' },
-                    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 2) // 2 hours ago
+                    content: 'Thanks for the project update',
+                    senderId: { fullName: 'Isha Kapoor' },
+                    createdAt: new Date(Date.now() - 1000 * 60 * 60)
                 },
                 unreadCount: new Map([['demo_user_1', 0]]),
-                lastMessageTime: new Date(Date.now() - 1000 * 60 * 60 * 2)
+                lastMessageTime: new Date(Date.now() - 1000 * 60 * 60)
             }
         ];
         this.renderConversations();
@@ -97,10 +97,12 @@ class ChatApp {
         messagesList.innerHTML = '';
 
         this.conversations.forEach(conversation => {
-            const otherParticipant = conversation.participants.find(p => p._id !== this.currentUser._id);
+            const otherParticipant = conversation.participants.find(p => p._id !== this.currentUser._id) || conversation.participants[0];
             const unreadCount = conversation.unreadCount.get(this.currentUser._id) || 0;
             const lastMessage = conversation.lastMessage;
-            const timeAgo = this.formatTimeAgo(conversation.lastMessageTime);
+            const lastSeen = otherParticipant.lastSeen || conversation.lastMessageTime;
+            const timeAgo = this.formatTimeAgo(lastSeen);
+            const statusText = otherParticipant.isOnline ? 'Online' : `Last seen ${timeAgo}`;
 
             const conversationElement = document.createElement('div');
             conversationElement.className = `conversation-item ${unreadCount > 0 ? 'unread' : ''}`;
@@ -116,7 +118,7 @@ class ChatApp {
                 <div class="conversation-content">
                     <div class="conversation-header">
                         <h4 class="conversation-name">${otherParticipant.fullName}</h4>
-                        <span class="conversation-time">${timeAgo}</span>
+                        <span class="conversation-time">${statusText}</span>
                     </div>
                     <div class="conversation-preview">
                         <p class="last-message">${lastMessage ? lastMessage.content : 'No messages yet'}</p>
@@ -141,7 +143,7 @@ class ChatApp {
         document.getElementById('active-chat').style.display = 'block';
         
         // Update chat header
-        const otherParticipant = conversation.participants.find(p => p._id !== this.currentUser._id);
+        const otherParticipant = conversation.participants.find(p => p._id !== this.currentUser._id) || conversation.participants[0];
         document.getElementById('chat-user-name').textContent = otherParticipant.fullName;
         document.getElementById('chat-user-status').textContent = otherParticipant.isOnline ? 'Online' : 'Last seen recently';
         
@@ -395,9 +397,9 @@ class ChatApp {
         const days = Math.floor(diff / 86400000);
 
         if (minutes < 1) return 'now';
-        if (minutes < 60) return `${minutes}m`;
-        if (hours < 24) return `${hours}h`;
-        if (days < 7) return `${days}d`;
+        if (minutes < 60) return `${minutes}m ago`;
+        if (hours < 24) return `${hours}h ago`;
+        if (days < 7) return `${days}d ago`;
         return new Date(date).toLocaleDateString();
     }
 

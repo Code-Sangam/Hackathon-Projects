@@ -4956,3 +4956,93 @@ input, select, textarea {
 	color: rgba(255, 255, 255, 0.7);
 	font-size: 0.9rem;
 }
+
+/* Chat Dark Theme (matches site dark palette) */
+body.theme-dark {
+	background: #1c1d26;
+	color: rgba(255,255,255,0.85);
+}
+
+body.theme-dark #side-rail {
+	background: #181920;
+	border-right-color: rgba(255,255,255,0.08);
+}
+
+body.theme-dark .topbar {
+	background: rgba(39,40,51,0.965);
+}
+
+body.theme-dark .chat-container,
+body.theme-dark .messages-sidebar,
+body.theme-dark .chat-area,
+body.theme-dark .active-chat {
+	background: transparent;
+}
+
+body.theme-dark .search-filter-section {
+	background: rgba(255,255,255,0.03);
+	border-bottom-color: rgba(255,255,255,0.08);
+}
+
+body.theme-dark .messages-sidebar {
+	border-right-color: rgba(255,255,255,0.08);
+}
+
+body.theme-dark .search-input {
+	background: rgba(255,255,255,0.06);
+	border-color: rgba(255,255,255,0.12);
+	color: rgba(255,255,255,0.9);
+	box-shadow: none;
+}
+body.theme-dark .search-input::placeholder { color: rgba(255,255,255,0.55); }
+body.theme-dark .search-input:focus { background: rgba(0,0,0,0.15); border-color: #4a90e2; box-shadow: 0 0 0 2px rgba(74,144,226,0.25); }
+
+body.theme-dark .filter-btn {
+	background: rgba(255,255,255,0.06);
+	border-color: rgba(255,255,255,0.12);
+	color: rgba(255,255,255,0.7);
+	box-shadow: none;
+}
+body.theme-dark .filter-btn:hover { background: rgba(255,255,255,0.1); border-color: #4a90e2; color: #4a90e2; }
+body.theme-dark .filter-btn.active { background: #4a90e2; border-color: #4a90e2; color: #ffffff; }
+
+body.theme-dark .filter-dropdown {
+	background: #252634;
+	border-color: rgba(255,255,255,0.12);
+	box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+body.theme-dark .filter-option { color: rgba(255,255,255,0.85); border-bottom-color: rgba(255,255,255,0.08); }
+body.theme-dark .filter-option:hover { background: rgba(255,255,255,0.06); }
+body.theme-dark .filter-option.active { background: #4a90e2; color: #ffffff; }
+
+body.theme-dark .messages-list { background: transparent; }
+
+body.theme-dark .conversation-item { border-bottom-color: rgba(255,255,255,0.06); }
+body.theme-dark .conversation-item:hover { background-color: rgba(255,255,255,0.04); }
+body.theme-dark .conversation-item.active { background-color: rgba(74,144,226,0.15); border-left-color: #4a90e2; }
+body.theme-dark .conversation-item.unread { background-color: rgba(74,144,226,0.1); }
+body.theme-dark .conversation-name { color: rgba(255,255,255,0.9); }
+body.theme-dark .last-message { color: rgba(255,255,255,0.6); }
+
+body.theme-dark .avatar,
+body.theme-dark .user-avatar { background: linear-gradient(45deg, #4a90e2, #8e44ad); }
+
+body.theme-dark .chat-header { background: rgba(255,255,255,0.03); border-bottom-color: rgba(255,255,255,0.08); box-shadow: none; }
+body.theme-dark .user-details h4 { color: rgba(255,255,255,0.92); }
+body.theme-dark .user-details span { color: #6bd26b; }
+
+body.theme-dark .no-chat-selected { background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%); }
+body.theme-dark .chat-icon { border-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.03); box-shadow: none; }
+body.theme-dark .no-chat-selected h3 { color: rgba(255,255,255,0.92); }
+body.theme-dark .no-chat-selected p { color: rgba(255,255,255,0.6); }
+
+body.theme-dark .chat-messages { background: transparent; }
+body.theme-dark .chat-messages { background-image: radial-gradient(circle at 20px 20px, rgba(74,144,226,0.08) 1px, transparent 1px); }
+body.theme-dark .chat-input-area { background: rgba(255,255,255,0.03); border-top-color: rgba(255,255,255,0.08); }
+body.theme-dark .chat-input-area input { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); }
+body.theme-dark .chat-input-area input:focus { background: rgba(0,0,0,0.15); border-color: #4a90e2; box-shadow: 0 0 0 2px rgba(74,144,226,0.25); }
+body.theme-dark .chat-input-area input::placeholder { color: rgba(255,255,255,0.55); }
+body.theme-dark .chat-input-area button { background: #4a90e2; box-shadow: 0 2px 8px rgba(74,144,226,0.3); }
+body.theme-dark .chat-input-area button:hover { background: #3c7bc1; box-shadow: 0 4px 12px rgba(74,144,226,0.45); }
+
+body.theme-dark #footer { background: transparent; }
