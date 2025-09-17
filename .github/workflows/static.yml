@@ -1,0 +1,119 @@
+# Workflow for building and deploying Alumni Platform to GitHub Pages
+name: Build and Deploy Alumni Platform
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build and deploy job
+  build-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "html5up-landed - Copy (5) - Copy"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: "html5up-landed - Copy (5) - Copy/package-lock.json"
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Create production build directory
+        run: |
+          mkdir -p dist
+          # Copy all HTML files to dist
+          cp *.html dist/
+          # Copy assets directory
+          cp -r assets dist/
+          # Copy any other static files needed
+          if [ -f favicon.ico ]; then cp favicon.ico dist/; fi
+          if [ -f robots.txt ]; then cp robots.txt dist/; fi
+          
+      - name: Create client-side routing fallback
+        run: |
+          # Create a simple index.html that can handle client-side routing
+          echo '<!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <title>Alumni Platform</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="assets/css/main.css" />
+            <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+          </head>
+          <body class="is-preload landing">
+            <div id="page-wrapper">
+              <header id="header">
+                <h1 id="logo"><a href="index.html">Alumni Platform</a></h1>
+                <nav id="nav">
+                  <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html" class="button primary">Sign Up</a></li>
+                  </ul>
+                </nav>
+              </header>
+              <div id="main" class="wrapper style1">
+                <div class="container">
+                  <header class="major">
+                    <h2>Welcome to Alumni Platform</h2>
+                    <p>Connect with fellow alumni and current students</p>
+                  </header>
+                  <div class="row gtr-150">
+                    <div class="col-12">
+                      <p>This is a demo deployment. For full functionality with backend features, please run locally with Node.js.</p>
+                      <ul class="actions">
+                        <li><a href="login.html" class="button">Login</a></li>
+                        <li><a href="signup.html" class="button primary">Sign Up</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+          </body>
+          </html>' > dist/index.html
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "html5up-landed - Copy (5) - Copy/dist"
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
