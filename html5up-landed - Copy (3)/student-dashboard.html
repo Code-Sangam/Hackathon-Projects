@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Student Dashboard - Landed</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header removed for dashboard - using left sidebar navigation only -->
+
+			<section class="wrapper style1" style="padding-top:2rem;padding-bottom:2rem;">
+				<div class="container">
+					<div class="row gtr-50">
+						<div class="col-3 col-12-small">
+							<div class="box" style="position:sticky;top:1rem;padding:0;">
+								<div style="display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1rem;border-bottom:1px solid rgba(255,255,255,0.15);">
+									<h3 style="margin:0;">Menu</h3>
+									<button id="st-nav-toggle" class="button icon solid fa-bars small">&nbsp;</button>
+								</div>
+								<ul id="stu-side-nav" class="icon-nav" style="list-style:none;margin:0;padding:0.5rem;">
+									<li><a href="#st-chat"><span class="icon solid fa-comments"></span><span class="label">Chat</span></a></li>
+									<li><a href="#st-alumni"><span class="icon solid fa-user-tie"></span><span class="label">Alumni</span></a></li>
+									<li><a href="#st-students"><span class="icon solid fa-user-graduate"></span><span class="label">Students</span></a></li>
+									<li><a href="#st-projects"><span class="icon solid fa-project-diagram"></span><span class="label">Projects</span></a></li>
+									<li><a href="#st-profile"><span class="icon solid fa-id-badge"></span><span class="label">Profile</span></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-9 col-12-small">
+							<div id="st-chat" class="box">
+								<h3>Chat</h3>
+								<div id="st-chat-list" class="row gtr-25"></div>
+								<div class="row gtr-25" style="margin-top:0.75rem;">
+									<div class="col-9 col-12-small"><input type="text" id="st-chat-input" placeholder="Type a message..." /></div>
+									<div class="col-3 col-12-small"><button id="st-chat-send" class="button primary fit">Send</button></div>
+								</div>
+							</div>
+
+							<div id="st-alumni" class="box">
+								<h3>Discover Alumni</h3>
+								<div id="st-alumni-list" class="row gtr-25"></div>
+							</div>
+
+							<div id="st-students" class="box">
+								<h3>Discover Students</h3>
+								<div id="st-student-list" class="row gtr-25"></div>
+							</div>
+
+							<div id="st-projects" class="box">
+								<h3>Projects</h3>
+								<div id="st-project-list" class="row gtr-25"></div>
+							</div>
+
+							<div id="st-profile" class="box">
+								<h3>Your Profile</h3>
+								<p><strong>Followers:</strong> <span id="st-followers">0</span> · <strong>Following:</strong> <span id="st-following">0</span> · <strong>Projects:</strong> <span id="st-project-count">0</span></p>
+								<div id="st-profile-projects" class="row gtr-25"></div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled. All rights reserved.</li>
+				</ul>
+			</footer>
+
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/role-dashboards.js"></script>
+	</body>
+</html>
